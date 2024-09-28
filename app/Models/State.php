@@ -15,8 +15,8 @@ class State extends Model
 
     protected $table = "states";
 
-    public function users()
-    {
-        return $this->hasMany(User::class, 'state_id');
-    }
+    // public function users()
+    // {
+    //     return $this->hasMany(User::class, 'state_id');
+    // }
 }

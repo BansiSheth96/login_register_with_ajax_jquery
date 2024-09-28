@@ -6,8 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\State;
-use App\Models\City;
+
 
 class User extends Authenticatable
 {
@@ -51,13 +50,13 @@ class User extends Authenticatable
         ];
     }
 
-    public function state()
-    {
-        return $this->belongsTo(State::class);
-    }
+    // public function state()
+    // {
+    //     return $this->belongsTo(State::class);
+    // }
 
-    public function city()
-    {
-        return $this->belongsTo(City::class);
-    }
+    // public function city()
+    // {
+    //     return $this->belongsTo(City::class);
+    // }
 }
