@@ -50,13 +50,13 @@ class User extends Authenticatable
         ];
     }
 
-    // public function state()
-    // {
-    //     return $this->belongsTo(State::class);
-    // }
+    public function viewState()
+    {
+        return $this->belongsTo(State::class,'state');
+    }
 
-    // public function city()
-    // {
-    //     return $this->belongsTo(City::class);
-    // }
+    public function viewCity()
+    {
+        return $this->belongsTo(City::class,'city');
+    }
 }

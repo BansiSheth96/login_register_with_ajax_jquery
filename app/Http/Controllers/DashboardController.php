@@ -10,7 +10,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
+        $user = Auth::user()->load('viewState', 'viewCity');
         return view('dashboard', compact('user'));
     }
 }

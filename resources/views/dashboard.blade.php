@@ -1,5 +1,3 @@
-
-
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <main class="signup-form">
@@ -60,14 +58,14 @@
                             <div class="form-group row">
                                 <label for="state" class="col-md-4 col-form-label text-md-right">{{ __('State') }}</label>
                                 <div class="col-md-6">
-                                    <input id="state" type="text" class="form-control" name="state" value="{{ $user->state }}" >
+                                    <input id="state" type="text" class="form-control" name="state" value="{{ $user->viewState->name}}" >
                                 </div>
                             </div><br>
 
                             <div class="form-group row">
                                 <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
                                 <div class="col-md-6">
-                                    <input id="city" type="text" class="form-control" name="city" value="{{ $user->city }}"> 
+                                    <input id="city" type="text" class="form-control" name="city" value="{{ $user->viewCity->name}}"> 
                                 </div>
                             </div><br>
 
