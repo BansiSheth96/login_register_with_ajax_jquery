@@ -120,25 +120,6 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
 
 <script>
-// $(document).ready(function() {
-//     $('#state').change(function() {
-//         var stateId = $(this).val();
-//         $.ajax({
-//             url: '/get-cities/' + stateId,
-//             method: 'GET',
-//             success: function(data) {
-//                 $('#city').empty();
-//                 $.each(data, function(key, value) {
-//                     $('#city').append('<option value="' + key + '">' + value + '</option>');
-//                 });
-//             }
-//         });
-//     });
-
-//     $('#registrationForm').validate();
-// });
-
-
 $(document).ready(function() {
     $('#state').change(function() {
         var stateId = $(this).val();

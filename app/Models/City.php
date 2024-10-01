@@ -15,9 +15,4 @@ class City extends Model
     ];
 
     protected $table = "cities";
-
-    // public function users()
-    // {
-    //     return $this->hasMany(User::class, 'city_id');
-    // }
 }
