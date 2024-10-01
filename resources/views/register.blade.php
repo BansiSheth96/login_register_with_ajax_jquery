@@ -98,6 +98,14 @@
                                 </div>
                             </div><br>
 
+                            <div class="form-group row">
+                                <label for="upload_image" class="col-md-4 col-form-label text-md-right">{{ __('Upload Image') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="upload_image" type="file" class="form-control" name="upload_image" accept="image/*">
+                                </div>
+                            </div><br>
+
                             <div class="d-grid mx-auto">
                                 <button type="submit" class="btn btn-dark btn-block">Submit</button>
                             </div>
@@ -120,6 +128,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
 
 <script>
+
 $(document).ready(function() {
     $('#state').change(function() {
         var stateId = $(this).val();
@@ -154,7 +163,25 @@ $('#registrationForm').validate({
             },
             email: {
                 required: true,
-                email: true
+                email: true,
+                remote: {
+                    url: "{{ route('check.email') }}",  // URL to check for email uniqueness
+                    type: "POST",
+                    data: {
+                        email: function() {
+                            return $('#email').val();
+                        },
+                        _token: '{{ csrf_token() }}'  // CSRF token for security
+                    },
+                    dataFilter: function(data) {
+                        var json = JSON.parse(data);
+                        if (json.exists) {
+                            return "\"" + "This email is already taken" + "\"";
+                        } else {
+                            return 'true';
+                        }
+                    }
+                }
             },
             phonenumber: {
                 required: true,
@@ -183,6 +210,10 @@ $('#registrationForm').validate({
             confirm_password: {
                 required: true,
                 equalTo: '#password'
+            },
+            upload_image: {
+                required: true,
+                //extension: "jpg,png,jpeg"
             }
         },
         messages: {
@@ -194,7 +225,8 @@ $('#registrationForm').validate({
             },
             email: {
                 required: "Please enter Email",
-                email: "Please enter a valid Email"
+                email: "Please enter a valid Email",
+                remote: "This email is already taken"
             },
             phonenumber: {
                 required: "Please enter your phone number",
@@ -223,6 +255,10 @@ $('#registrationForm').validate({
             confirm_password: {
                 required: "Please confirm your password",
                 equalTo: "Passwords does not match"
+            },
+            upload_image: {
+                required: "Please upload your image",
+                //extension: "Please select a valid image file (jpg, png, jpeg)"
             },
             submitHandler: function (form) {
         form.submit();

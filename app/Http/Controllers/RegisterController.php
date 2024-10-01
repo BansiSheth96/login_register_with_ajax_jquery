@@ -23,6 +23,18 @@ class RegisterController extends Controller
         return response()->json($get_cities);
     }
 
+    public function checkEmail(Request $request)
+    {
+        $email = $request->email;
+
+        // Check if email already exists in the database
+        $exists = User::where('email', $email)->exists();
+
+        return response()->json([
+            'exists' => $exists
+        ]);
+    }
+
     public function store(Request $request)
     {
         User::create([
@@ -34,6 +46,7 @@ class RegisterController extends Controller
             'pincode' => $request->pincode,
             'state' => $request->state,
             'city' => $request->city,
+            'upload_image' => $request->upload_image,
             'password' => Hash::make($request->password),
         ]);
     

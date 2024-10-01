@@ -12,6 +12,7 @@ use App\Http\Controllers\LoginController;
 //Register Route
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
+Route::post('/check-email', [RegisterController::class, 'checkEmail'])->name('check.email');
 
 //City Route
 Route::get('/get-cities/{state_id}', [RegisterController::class, 'getCities']);
@@ -20,8 +21,10 @@ Route::get('/get-cities/{state_id}', [RegisterController::class, 'getCities']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
-//Dashboard Route
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::middleware('auth')->group(function () {
+    //Dashboard Route
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
 
 //Logout Route
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
