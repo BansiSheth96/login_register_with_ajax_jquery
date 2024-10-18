@@ -23,8 +23,9 @@ In the Registration form the required fields will be:
 -> There will be a submit button in the Registration page, clicking on which the page will be redirected to Login Page, Where User can login by email and password.
 
 -> After clicking on the login button, Dashboard will open, where there will be three options
-    * View Profile - where user can view the information given at the time of registration except password.
-    * Log out. 
+
+    - View Profile - where user can view the information given at the time of registration except password.
+    - Log out. 
 
 
 
