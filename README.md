@@ -11,6 +11,7 @@ In the Registration form the required fields will be:
 8. City
 9. Password (Must be of minimum 8 characters)
 10. Confirm Password
+
 -> The State and city fields will be in interconnected Drop down.
 -> If we change the state the city will be changed accordingly.
 -> Use AJAX to do the dropdown portion Put the Jquery validation in the fields accordingly.
