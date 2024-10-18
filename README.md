@@ -13,10 +13,15 @@ In the Registration form the required fields will be:
 10. Confirm Password
 
 -> The State and city fields will be in interconnected Drop down.
+
 -> If we change the state the city will be changed accordingly.
+
 -> Use AJAX to do the dropdown portion Put the Jquery validation in the fields accordingly.
+
 -> User can not register with a mail id twice.
+
 -> There will be a submit button in the Registration page, clicking on which the page will be redirected to Login Page, Where User can login by email and password.
+
 -> After clicking on the login button, Dashboard will open, where there will be three options
     * View Profile - where user can view the information given at the time of registration except password.
     * Log out. 
