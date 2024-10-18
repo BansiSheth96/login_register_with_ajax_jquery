@@ -1,4 +1,4 @@
-**Requirement** Make a Registration and a Login form whole work in LARAVEL.
+**Requirement**: Make a Registration and a Login form whole work in LARAVEL.
 
 In the Registration form the required fields will be:
 1. Name
