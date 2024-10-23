@@ -8,7 +8,7 @@
                     <h3 class="card-header text-center">Registration Form</h3>
                     <div class="card-body">
 
-                        <form id="registrationForm" action="{{ route('register') }}" method="POST">
+                        <form id="registrationForm" action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row">

@@ -69,7 +69,13 @@
                                 </div>
                             </div><br>
 
-                       
+                            <div class="form-group row">
+                                <label for="upload_image" class="col-md-4 col-form-label text-md-right">{{ __('Image') }}</label>
+                                <div class="col-md-6">
+                                    <img id="upload_image" src="{{ asset('images/' . $user->upload_image) }}" alt="User Image" class="img-thumbnail" width="150" height="150">
+                                </div>
+                            </div><br>
+
                     </div>
 
                     <form action="{{ route('logout') }}" method="POST">

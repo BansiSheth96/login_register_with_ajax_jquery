@@ -26,8 +26,6 @@ class RegisterController extends Controller
     public function checkEmail(Request $request)
     {
         $email = $request->email;
-
-        // Check if email already exists in the database
         $exists = User::where('email', $email)->exists();
 
         return response()->json([
@@ -37,6 +35,12 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
+        if ($request->hasFile('upload_image')) {
+            $image = $request->file('upload_image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName); // Save the image in the 'public/images' directory
+        }
+
         User::create([
             'name' => $request->name,
             'surname' => $request->surname,
@@ -46,7 +50,7 @@ class RegisterController extends Controller
             'pincode' => $request->pincode,
             'state' => $request->state,
             'city' => $request->city,
-            'upload_image' => $request->upload_image,
+            'upload_image' => $imageName,
             'password' => Hash::make($request->password),
         ]);
     
